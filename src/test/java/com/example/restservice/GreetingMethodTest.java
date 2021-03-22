@@ -14,7 +14,7 @@ public class GreetingMethodTest {
     @BeforeEach
     public void setUp(){
         greetingControllerTest = new GreetingController();
-        greetingTest = new Greeting("Your short URL, shorturl.com/415207542");
+        greetingTest = new Greeting("Your short URL shorturl.com/415207542");
     }
 
     @Test
