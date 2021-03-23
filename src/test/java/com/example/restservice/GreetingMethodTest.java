@@ -14,13 +14,12 @@ public class GreetingMethodTest {
     @BeforeEach
     public void setUp(){
         greetingControllerTest = new GreetingController();
-        greetingTest = new Greeting("Your short URL shorturl.com/415207542");
     }
 
     @Test
     @DisplayName("Check hash:")
     public void testGreetingMethod() {
-        assertEquals(greetingControllerTest.greeting("https://www.vogella.com/tutorials/JUnit/article.html"), greetingTest);
+        assertEquals(new Greeting("Your short URL shorturl.com/415207542"), greetingControllerTest.greeting("https://www.vogella.com/tutorials/JUnit/article.html"));
     }
 
 
