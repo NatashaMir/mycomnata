@@ -3,17 +3,21 @@ package com.example.restservice;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.AutoConfigureOrder;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@SpringBootTest()
 public class AnswerMethodTest {
 
+    @Autowired
     private GreetingController greetingControllerTest;
     String url = "https://www.vogella.com/tutorials/JUnit/article.html";
 
     @BeforeEach
     public void setUp() {
-        greetingControllerTest = new GreetingController();
     }
 
     @Test

@@ -13,7 +13,7 @@ public class GreetingMethodTest {
 
     @BeforeEach
     public void setUp(){
-        greetingControllerTest = new GreetingController();
+        greetingControllerTest = new GreetingController(new StorageHashMap());
     }
 
     @Test
