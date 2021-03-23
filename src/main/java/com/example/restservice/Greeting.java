@@ -31,7 +31,7 @@ public class Greeting {
 
         Greeting greeting = (Greeting) obj;
 
-        return content == greeting.content;
+        return content.equals(greeting.content);
     }
 
 }
