@@ -4,13 +4,17 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.AutoConfigureOrder;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.doReturn;
 
 @SpringBootTest()
 public class AnswerMethodTest {
+
+    @MockBean
+    Storage storage;
 
     @Autowired
     private GreetingController greetingControllerTest;
@@ -23,7 +27,8 @@ public class AnswerMethodTest {
     @Test
     @DisplayName("Check hash exist:")
     public void testAnswerMethodTrue() {
-        greetingControllerTest.greeting(url);
+        doReturn(url).when(storage).get("" + url.hashCode());
+        //greetingControllerTest.greeting(url);
         int hash = url.hashCode();
         assertEquals(new Greeting("Your full URL https://www.vogella.com/tutorials/JUnit/article.html"), greetingControllerTest.answer(hash));
     }

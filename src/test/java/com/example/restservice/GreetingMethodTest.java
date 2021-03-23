@@ -1,6 +1,5 @@
 package com.example.restservice;
 
-import com.example.restservice.Greeting;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
