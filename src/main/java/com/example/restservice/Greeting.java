@@ -13,6 +13,13 @@ public class Greeting {
     }
 
     @Override
+    public String toString() {
+        return "Greeting{" +
+                "content='" + content + '\'' +
+                '}';
+    }
+
+    @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;
