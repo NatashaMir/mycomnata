@@ -27,7 +27,7 @@ public class StoragedbService {
         return storagedbRepository.findAll();
     }
 
-    public String findByHashurl(String hashurl) {
+    public String findByHashurl(int hashurl) {
         return storagedbRepository.findByHashurl(hashurl);
     }
 

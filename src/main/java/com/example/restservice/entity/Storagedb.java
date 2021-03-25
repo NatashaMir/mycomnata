@@ -7,9 +7,17 @@ import javax.persistence.*;
 public class Storagedb {
 
     @Id
-    private Long hashurl;
+    private int hashurl;
 
     @Column
     private String fullurl;
+
+    public Storagedb(int hashurl, String fullurl) {
+        this.hashurl = hashurl;
+        this.fullurl = fullurl;
+    }
+
+    public Storagedb() {
+    }
 
 }
