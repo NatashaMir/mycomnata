@@ -40,6 +40,13 @@
             <version>9.4-1206-jdbc42</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.testcontainers</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>1.10.6</version>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
 
     <build>

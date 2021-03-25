@@ -6,7 +6,7 @@ import javax.persistence.*;
 @Table(name = "storagedb")
 public class Storagedb {
 
-    @Column
+    @Id
     private Long hashurl;
 
     @Column
