@@ -6,6 +6,7 @@ import com.example.restservice.repository.StoragedbRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -13,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class StoragedbTest {
 
     @Autowired
-    private StoragedbService storagedbService;
+    private TestEntityManager entityManager;
 
     @Autowired
     private StoragedbRepository storagedbRepository;
@@ -21,8 +22,8 @@ public class StoragedbTest {
     @Test
     public void testSaveNewItemStorage(){
 
-        storagedbService.createStoragedb(new Storagedb());
-        String urlfull = storagedbRepository.findByHashurl("415207542");
+        entityManager.persist(new Storagedb(415207542, "https://www.vogella.com/tutorials/JUnit/article.html"));
+        String urlfull = storagedbRepository.findByHashurl(415207542);
         assertEquals(urlfull, "https://www.vogella.com/tutorials/JUnit/article.html");
 
     }
