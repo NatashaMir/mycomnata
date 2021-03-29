@@ -1,6 +1,5 @@
 package com.example.restservice;
 
-import com.example.restservice.Service.StoragedbService;
 import com.example.restservice.entity.Storagedb;
 import com.example.restservice.repository.StoragedbRepository;
 import org.junit.jupiter.api.Test;
@@ -22,8 +21,8 @@ public class StoragedbTest {
     @Test
     public void testSaveNewItemStorage(){
 
-        entityManager.persist(new Storagedb(415207542, "https://www.vogella.com/tutorials/JUnit/article.html"));
-        String urlfull = storagedbRepository.findByHashurl(415207542);
+        entityManager.persist(new Storagedb("415207542", "https://www.vogella.com/tutorials/JUnit/article.html"));
+        String urlfull = storagedbRepository.findByHashurl("415207542");
         assertEquals(urlfull, "https://www.vogella.com/tutorials/JUnit/article.html");
 
     }

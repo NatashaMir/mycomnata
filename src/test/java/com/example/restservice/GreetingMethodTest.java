@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @SpringBootTest()
 public class GreetingMethodTest {
 
-    @MockBean
+    @MockBean(name = "real")
     Storage storage;
 
     @Autowired

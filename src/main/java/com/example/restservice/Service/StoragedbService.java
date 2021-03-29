@@ -21,13 +21,14 @@ public class StoragedbService {
 
     public void createStoragedb(Storagedb storagedb) {
         storagedbRepository.save(storagedb);
+        storagedbRepository.flush();
     }
 
     public List<Storagedb> findAll() {
         return storagedbRepository.findAll();
     }
 
-    public String findByHashurl(int hashurl) {
+    public String findByHashurl(String hashurl) {
         return storagedbRepository.findByHashurl(hashurl);
     }
 

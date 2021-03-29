@@ -8,11 +8,10 @@ import org.springframework.stereotype.Repository;
 import org.springframework.data.jpa.repository.Query;
 
 @Repository
-@Lazy
 
 public interface StoragedbRepository extends JpaRepository<Storagedb, Long> {
 
-    @Query(nativeQuery = true, value = "SELECT s.fullurl FROM storagedb s WHERE s.hashurl = :hashurl")
-    String findByHashurl(@Param("hashurl") int hashurl);
+    @Query(nativeQuery = true, value = "SELECT s.fullurl FROM greeting.storagedbt s WHERE s.hashurl = :hashurl")
+    String findByHashurl(@Param("hashurl") String hashurl);
 
 }

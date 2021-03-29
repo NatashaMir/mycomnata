@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-@Component
+@Component(value = "inMemory")
 public class StorageHashMap implements Storage{
 
     private final Map<String, String> hmap = new ConcurrentHashMap<>();

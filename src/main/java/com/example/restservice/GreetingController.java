@@ -1,6 +1,8 @@
 package com.example.restservice;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.context.properties.bind.Name;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,7 +16,7 @@ public class GreetingController {
     private static final String template_answer = "Your full URL %s";
 
 
-    public GreetingController(Storage storage) {
+    public GreetingController(@Qualifier("real") Storage storage) {
         hmap = storage;
     }
 
@@ -25,7 +27,7 @@ public class GreetingController {
     }
 
     @GetMapping("/answer")
-    public Greeting answer(@RequestParam(value = "shortname", defaultValue = "") int shortname) {
+    public Greeting answer(@RequestParam(value = "shortname", defaultValue = "") String shortname) {
         String answer = hmap.get("" + shortname);
         if (answer != null) {
             return new Greeting(String.format(template_answer, answer));
