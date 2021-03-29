@@ -1,9 +1,12 @@
 package com.example.restservice.entity;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
-@Table(name = "greeting.storagedbt")
+@Table(schema = "greeting", name = "storagedbt")
 public class Storagedb {
 
     @Id
