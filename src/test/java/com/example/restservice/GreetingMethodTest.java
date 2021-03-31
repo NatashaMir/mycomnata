@@ -27,7 +27,7 @@ public class GreetingMethodTest {
     @Test
     @DisplayName("Check hash:")
     public void testGreetingMethod() {
-        assertEquals(new Greeting("Your short URL shorturl.com/415207542"), greetingControllerTest.greeting(url));
+        assertEquals(new Greeting("Your short URL http://shorturl.com:8080/answer/415207542"), greetingControllerTest.greeting(url));
     }
 
 
