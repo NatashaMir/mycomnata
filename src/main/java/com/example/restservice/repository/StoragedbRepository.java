@@ -1,7 +1,6 @@
 package com.example.restservice.repository;
 
 import com.example.restservice.entity.Storagedb;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;

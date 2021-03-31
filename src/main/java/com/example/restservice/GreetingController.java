@@ -28,7 +28,7 @@ public class GreetingController {
 
     @GetMapping("/answer")
     public Greeting answer(@RequestParam(value = "shortname", defaultValue = "") String shortname) {
-        String answer = hmap.get("" + shortname);
+        String answer = hmap.get(shortname.substring(shortname.lastIndexOf('/')+1, shortname.length() - 1));
         if (answer != null) {
             return new Greeting(String.format(template_answer, answer));
         } else {
