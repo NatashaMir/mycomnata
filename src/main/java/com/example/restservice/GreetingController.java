@@ -1,32 +1,31 @@
 package com.example.restservice;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.boot.context.properties.bind.Name;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.websocket.server.PathParam;
 
 @RestController
 public class GreetingController {
 
     private final Storage hmap;
 
-    private static final String template = "Your short URL http://shorturl.com:8080/answer/%s";
+
+    private final ServerPortService server;
+
     private static final String template_answer = "Your full URL %s";
 
-
-    public GreetingController(@Qualifier("real") Storage storage) {
+    public GreetingController(@Qualifier("real") Storage storage, ServerPortService server) {
         hmap = storage;
+        this.server = server;
     }
 
     @GetMapping("/greeting")
     public Greeting greeting(@RequestParam(value = "name", defaultValue = "") String name) {
         hmap.put("" + name.hashCode(), name);
-        return new Greeting(String.format(template, name.hashCode()));
+        return new Greeting(String.format("http://shorturl.com:" + server.getPort() + "/answer/%s", name.hashCode()));
     }
 
     @GetMapping("/answer/{shortname}")
