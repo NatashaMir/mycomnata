@@ -1,9 +1,6 @@
 package com.example.restservice.endtoend;
 
 import com.example.restservice.Greeting;
-import com.example.restservice.GreetingController;
-import com.example.restservice.Storage;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
