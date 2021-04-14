@@ -28,7 +28,7 @@ public class AnswerMethodTest {
     @DisplayName("Check hash exist:")
     public void testAnswerMethodTrue() {
         doReturn(url).when(storage).get("" + url.hashCode());
-        //greetingControllerTest.greeting(url);
+        //greetingControllerTest.shorten(url);
         String hash = "" + url.hashCode();
         assertEquals(new Greeting("Your full URL https://www.vogella.com/tutorials/JUnit/article.html"), greetingControllerTest.answer(hash));
     }

@@ -32,7 +32,7 @@ public class GreetingMethodTest {
     @DisplayName("Check hash:")
     public void testGreetingMethod() {
         doReturn(8).when(serverPort).getPort();
-        assertEquals(new Greeting("http://shorturl.com:8/answer/415207542"), greetingControllerTest.greeting(url));
+        assertEquals(new Greeting("http://shorturl.com:8/answer/415207542"), greetingControllerTest.shorten(url));
     }
 
 

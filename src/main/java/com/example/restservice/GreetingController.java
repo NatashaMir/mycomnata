@@ -22,10 +22,10 @@ public class GreetingController {
         this.server = server;
     }
 
-    @GetMapping("/greeting")
-    public Greeting greeting(@RequestParam(value = "name", defaultValue = "") String name) {
-        hmap.put("" + name.hashCode(), name);
-        return new Greeting(String.format("http://shorturl.com:" + server.getPort() + "/answer/%s", name.hashCode()));
+    @GetMapping("/shorten")
+    public Greeting shorten(@RequestParam(value = "url", defaultValue = "") String url) {
+        hmap.put("" + url.hashCode(), url);
+        return new Greeting(String.format("http://shorturl.com:" + server.getPort() + "/answer/%s", url.hashCode()));
     }
 
     @GetMapping("/answer/{shortname}")

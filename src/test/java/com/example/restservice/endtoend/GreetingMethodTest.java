@@ -25,7 +25,7 @@ public class GreetingMethodTest {
     @Test
     @DisplayName("Check hash:")
     public void testGreetingMethod() {
-        Greeting tmp = this.restTemplate.getForObject("http://localhost:" + port + "/greeting?name=" + url, Greeting.class);
+        Greeting tmp = this.restTemplate.getForObject("http://localhost:" + port + "/shorten?url=" + url, Greeting.class);
         System.out.println(tmp);
         Greeting tmp2 = this.restTemplate.getForObject(tmp.getContent(), Greeting.class);
         System.out.println(tmp2);
