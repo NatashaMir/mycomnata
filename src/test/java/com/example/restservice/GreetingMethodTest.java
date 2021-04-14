@@ -1,6 +1,5 @@
 package com.example.restservice;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,19 +19,21 @@ public class GreetingMethodTest {
     @MockBean
     ServerPortService serverPort;
 
+    @MockBean
+    Shortener shortener;
+
+
     @Autowired
-    private GreetingController greetingControllerTest;
+    private GreetingController greetingController;
     String url = "https://www.vogella.com/tutorials/JUnit/article.html";
 
-    @BeforeEach
-    public void setUp(){
-    }
 
     @Test
-    @DisplayName("Check hash:")
+    @DisplayName("Check hash")
     public void testGreetingMethod() {
         doReturn(8).when(serverPort).getPort();
-        assertEquals(new Greeting("http://shorturl.com:8/lengthen/415207542"), greetingControllerTest.shorten(url));
+        doReturn("happyEnd").when(shortener).encode(url);
+        assertEquals(new Greeting("http://shorturl.com:8/lengthen/happyEnd"), greetingController.shorten(url));
     }
 
 
