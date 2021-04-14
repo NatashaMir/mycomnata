@@ -2,6 +2,7 @@ package com.example.restservice;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+//TODO rename
 public class Greeting {
 
     private final String content;
