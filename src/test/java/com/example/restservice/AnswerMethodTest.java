@@ -30,13 +30,13 @@ public class AnswerMethodTest {
         doReturn(url).when(storage).get("" + url.hashCode());
         //greetingControllerTest.shorten(url);
         String hash = "" + url.hashCode();
-        assertEquals(new Greeting("Your full URL https://www.vogella.com/tutorials/JUnit/article.html"), greetingControllerTest.answer(hash));
+        assertEquals(new Greeting("Your full URL https://www.vogella.com/tutorials/JUnit/article.html"), greetingControllerTest.lengthen(hash));
     }
 
     @Test
     @DisplayName("Check hash doesn`t exist:")
     public void testAnswerMethodFalse() {
-        assertEquals(new Greeting("Your full URL doesn`t exists"), greetingControllerTest.answer("123456789"));
+        assertEquals(new Greeting("Your full URL doesn't exists"), greetingControllerTest.lengthen("123456789"));
     }
 
 

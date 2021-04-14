@@ -25,16 +25,16 @@ public class GreetingController {
     @GetMapping("/shorten")
     public Greeting shorten(@RequestParam(value = "url", defaultValue = "") String url) {
         hmap.put("" + url.hashCode(), url);
-        return new Greeting(String.format("http://shorturl.com:" + server.getPort() + "/answer/%s", url.hashCode()));
+        return new Greeting(String.format("http://shorturl.com:" + server.getPort() + "/lengthen/%s", url.hashCode()));
     }
 
-    @GetMapping("/answer/{shortname}")
-    public Greeting answer(@PathVariable(value = "shortname") String shortname) {
-        String answer = hmap.get(shortname);
+    @GetMapping("/lengthen/{shortURL}")
+    public Greeting lengthen(@PathVariable(value = "shortURL") String shortURL) {
+        String answer = hmap.get(shortURL);
         if (answer != null) {
             return new Greeting(String.format(template_answer, answer));
         } else {
-            return new Greeting(String.format(template_answer, "doesn`t exists"));
+            return new Greeting(String.format(template_answer, "doesn't exists"));
         }
     }
 }

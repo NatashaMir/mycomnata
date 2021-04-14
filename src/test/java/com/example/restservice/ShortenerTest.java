@@ -14,19 +14,19 @@ public class ShortenerTest {
     @Test
     @DisplayName("Check random string:")
     public void testShortenerMethod() {
-        assertNotNull(new Shortener().encode("http://shorturl.com:8/answer/415207542"));
+        assertNotNull(new Shortener().encode("http://shorturl.com:8/lengthen/415207542"));
     }
 
     @Test
     @DisplayName("Check random string sympols:")
     public void testShortenerMethodCheckSymbols() {
-        assertThat(new Shortener().encode("http://shorturl.com:8/answer/415207542"), matchesPattern("[A-Za-z0-9]*"));
+        assertThat(new Shortener().encode("http://shorturl.com:8/lengthen/415207542"), matchesPattern("[A-Za-z0-9]*"));
     }
 
     @Test
     @DisplayName("Check random string length:")
     public void testShortenerMethodCheckLength() {
-        assertThat(new Shortener().encode("http://shorturl.com:8/answer/415207542"), hasLength(10));
+        assertThat(new Shortener().encode("http://shorturl.com:8/lengthen/415207542"), hasLength(10));
     }
 
 }
