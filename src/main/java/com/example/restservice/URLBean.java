@@ -2,23 +2,23 @@ package com.example.restservice;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-//TODO rename
-public class Greeting {
 
-    private final String content;
+public class URLBean {
 
-    public Greeting(@JsonProperty("content") String content){
-        this.content = content;
+    private final String url;
+
+    public URLBean(@JsonProperty("url") String url) {
+        this.url = url;
     }
 
-    public String getContent() {
-        return content;
+    public String getUrl() {
+        return url;
     }
 
     @Override
     public String toString() {
-        return "Greeting{" +
-                "content='" + content + '\'' +
+        return "URLBean{" +
+                "url='" + url + '\'' +
                 '}';
     }
 
@@ -26,7 +26,7 @@ public class Greeting {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((content == null) ? 0 : content.hashCode());
+        result = prime * result + ((url == null) ? 0 : url.hashCode());
         return result;
     }
 
@@ -39,9 +39,9 @@ public class Greeting {
             return false;
         }
 
-        Greeting greeting = (Greeting) obj;
+        URLBean URLBean = (URLBean) obj;
 
-        return content.equals(greeting.content);
+        return url.equals(URLBean.url);
     }
 
 }

@@ -11,7 +11,7 @@ import static org.mockito.Mockito.doReturn;
 
 
 @SpringBootTest()
-public class GreetingMethodTest {
+public class URLBeanMethodTest {
 
     @MockBean(name = "real")
     Storage storage;
@@ -24,7 +24,7 @@ public class GreetingMethodTest {
 
 
     @Autowired
-    private GreetingController greetingController;
+    private URLBeanController URLBeanController;
     String url = "https://www.vogella.com/tutorials/JUnit/article.html";
 
 
@@ -33,7 +33,7 @@ public class GreetingMethodTest {
     public void testGreetingMethod() {
         doReturn(8).when(serverPort).getPort();
         doReturn("happyEnd").when(shortener).encode(url);
-        assertEquals(new Greeting("http://shorturl.com:8/lengthen/happyEnd"), greetingController.shorten(url));
+        assertEquals(new URLBean("http://shorturl.com:8/lengthen/happyEnd"), URLBeanController.shorten(url));
     }
 
 

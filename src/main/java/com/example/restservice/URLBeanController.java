@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-public class GreetingController {
+public class URLBeanController {
 
     private final Storage hmap;
     private final ServerPortService server;
@@ -16,26 +16,26 @@ public class GreetingController {
 
     private static final String template_answer = "Your full URL %s";
 
-    public GreetingController(@Qualifier("real") Storage storage, ServerPortService server, Shortener shortener) {
+    public URLBeanController(@Qualifier("real") Storage storage, ServerPortService server, Shortener shortener) {
         hmap = storage;
         this.server = server;
         this.shortener = shortener;
     }
 
     @GetMapping("/shorten")
-    public Greeting shorten(@RequestParam(value = "url", defaultValue = "") String url) {
+    public URLBean shorten(@RequestParam(value = "url", defaultValue = "") String url) {
         String shortUrl = shortener.encode(url);
         hmap.put("" + shortUrl, url);
-        return new Greeting(String.format("http://shorturl.com:" + server.getPort() + "/lengthen/%s", shortUrl));
+        return new URLBean(String.format("http://shorturl.com:" + server.getPort() + "/lengthen/%s", shortUrl));
     }
 
     @GetMapping("/lengthen/{shortURL}")
-    public Greeting lengthen(@PathVariable(value = "shortURL") String shortURL) {
+    public URLBean lengthen(@PathVariable(value = "shortURL") String shortURL) {
         String answer = hmap.get(shortURL);
         if (answer != null) {
-            return new Greeting(String.format(template_answer, answer));
+            return new URLBean(String.format(template_answer, answer));
         } else {
-            return new Greeting(String.format(template_answer, "doesn't exists"));
+            return new URLBean(String.format(template_answer, "doesn't exists"));
         }
     }
 }

@@ -17,7 +17,7 @@ public class AnswerMethodTest {
     Storage storage;
 
     @Autowired
-    private GreetingController greetingControllerTest;
+    private URLBeanController URLBeanControllerTest;
     String url = "https://www.vogella.com/tutorials/JUnit/article.html";
 
     @BeforeEach
@@ -28,15 +28,15 @@ public class AnswerMethodTest {
     @DisplayName("Check hash exist:")
     public void testAnswerMethodTrue() {
         doReturn(url).when(storage).get("" + url.hashCode());
-        //greetingControllerTest.shorten(url);
+        //URLBeanControllerTest.shorten(url);
         String hash = "" + url.hashCode();
-        assertEquals(new Greeting("Your full URL https://www.vogella.com/tutorials/JUnit/article.html"), greetingControllerTest.lengthen(hash));
+        assertEquals(new URLBean("Your full URL https://www.vogella.com/tutorials/JUnit/article.html"), URLBeanControllerTest.lengthen(hash));
     }
 
     @Test
     @DisplayName("Check hash doesn`t exist:")
     public void testAnswerMethodFalse() {
-        assertEquals(new Greeting("Your full URL doesn't exists"), greetingControllerTest.lengthen("123456789"));
+        assertEquals(new URLBean("Your full URL doesn't exists"), URLBeanControllerTest.lengthen("123456789"));
     }
 
 

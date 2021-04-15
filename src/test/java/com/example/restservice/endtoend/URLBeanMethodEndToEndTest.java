@@ -1,6 +1,6 @@
 package com.example.restservice.endtoend;
 
-import com.example.restservice.Greeting;
+import com.example.restservice.URLBean;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class GreetingMethodTest {
+public class URLBeanMethodEndToEndTest {
 
     @LocalServerPort
     private int port;
@@ -25,11 +25,11 @@ public class GreetingMethodTest {
     @Test
     @DisplayName("Check hash:")
     public void testGreetingMethod() {
-        Greeting tmp = this.restTemplate.getForObject("http://localhost:" + port + "/shorten?url=" + url, Greeting.class);
+        URLBean tmp = this.restTemplate.getForObject("http://localhost:" + port + "/shorten?url=" + url, URLBean.class);
         System.out.println(tmp);
-        Greeting tmp2 = this.restTemplate.getForObject(tmp.getContent(), Greeting.class);
+        URLBean tmp2 = this.restTemplate.getForObject(tmp.getUrl(), URLBean.class);
         System.out.println(tmp2);
-        assertEquals(new Greeting("Your full URL " + url), tmp2);
+        assertEquals(new URLBean("Your full URL " + url), tmp2);
     }
 
 
