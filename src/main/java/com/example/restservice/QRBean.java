@@ -11,10 +11,11 @@ import java.awt.image.BufferedImage;
 @Service
 public class QRBean {
 
-    public static BufferedImage generateQRCode(String barcodeText) throws Exception {
-        QRCodeWriter qrCodeeWriter = new QRCodeWriter();
-        BitMatrix bitMatrix =
-                qrCodeeWriter.encode(barcodeText, BarcodeFormat.QR_CODE, 200, 200);
+    public BufferedImage generateQRCode(String barcodeText) throws Exception {
+        QRCodeWriter qrCodeeWriter = new QRCodeWriter(); //This object renders a QR Code as a BitMatrix 2D array of greyscale values
+        //Represents a 2D matrix of bits:
+        BitMatrix bitMatrix = //
+                qrCodeeWriter.encode(barcodeText, BarcodeFormat.QR_CODE, 200, 200); //encode in interface Writer
 
         return MatrixToImageWriter.toBufferedImage(bitMatrix);
     }
