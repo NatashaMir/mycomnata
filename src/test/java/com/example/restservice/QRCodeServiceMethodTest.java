@@ -14,15 +14,15 @@ import java.awt.image.BufferedImage;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-public class QRBeanMethodTest {
+public class QRCodeServiceMethodTest {
 
     private String url = "http://shorturl.com:8/lengthen/415207542";
-    private QRBean qrBean = new QRBean();
+    private QRCodeService qrCodeService = new QRCodeService();
     private BufferedImage bufferedImage;
 
     @BeforeEach
     public void setUp() throws Exception {
-        bufferedImage = qrBean.generateQRCode(url);
+        bufferedImage = qrCodeService.generateQRCode(url);
     }
 
     @Test

@@ -23,12 +23,10 @@ public class URLBeanMethodEndToEndTest {
     String url = "https://www.vogella.com/tutorials/JUnit/article.html";
 
     @Test
-    @DisplayName("Check hash:")
-    public void testGreetingMethod() {
+    @DisplayName("Check happy path shorten method")
+    public void testShorten() {
         URLBean tmp = this.restTemplate.getForObject("http://localhost:" + port + "/shorten?url=" + url, URLBean.class);
-        System.out.println(tmp);
         URLBean tmp2 = this.restTemplate.getForObject(tmp.getUrl(), URLBean.class);
-        System.out.println(tmp2);
         assertEquals(new URLBean("Your full URL " + url), tmp2);
     }
 

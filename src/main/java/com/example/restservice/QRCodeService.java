@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.awt.image.BufferedImage;
 
 @Service
-public class QRBean {
+public class QRCodeService {
 
     public BufferedImage generateQRCode(String barcodeText) throws Exception {
         QRCodeWriter qrCodeeWriter = new QRCodeWriter(); //This object renders a QR Code as a BitMatrix 2D array of greyscale values
